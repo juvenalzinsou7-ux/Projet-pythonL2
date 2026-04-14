@@ -59,8 +59,10 @@ def liste_artistes(catalogue):
     if not catalogue :
         print("Liste vide")
         return None
-    return catalogue
 
+    for artiste in catalogue:
+        print(f"Nom:{artiste['nom']}|Genre:{artiste['genre']}|Pays:{artiste['pays']}|Albums:{len(artiste['albums'])}")
+    return catalogue
 #fonction pour rechercher un artiste(nom ou genre)
 def rechercher_artiste(catalogue,critere,valeur):
 
