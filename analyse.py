@@ -1,3 +1,7 @@
+
+import pandas as pd
+import json
+
 def charger_et_aplatir(chemin):
     """Charge le fichier JSON et retourne un DataFrame aplati avec les albums.
 
