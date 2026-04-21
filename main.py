@@ -1,5 +1,6 @@
 import label
 import analyse
+import historique
 def menu_consulter(catalogue):
     """
     Affiche le menu de consultation du catalogue et gere les interactions utlisateur.
@@ -83,6 +84,13 @@ def menu_ajouter_artiste(catalogue):
     if label.ajouter_artiste(catalogue, nouvel_artiste):
         label.sauvegarder_catalogue(catalogue, "catalogue.json")
         print(" Artiste ajouté et sauvegardé avec succes")
+        historique.journaliser("AJOUT ARTISTE", { "ID": id_artiste,
+        "Nom": nom,
+        "Genre": genre,
+        "Pays": pays
+        })
+        
+
     else:
         print("Echec de l'ajout.Verifiez les informations saisies")
 
@@ -112,6 +120,13 @@ def menu_ajouter_album(catalogue):
     if label.ajouter_album(catalogue,mon_artiste,nouvel_album):
         label.sauvegarder_catalogue(catalogue, "catalogue.json")
         print(" Album ajouté et sauvegardé avec succes")
+        historique.journaliser("AJOUT ALBUM", {
+        "Artiste": mon_artiste,
+        "Titre": titre_album,
+        "Année": annee,
+        "Streams": streams
+    })
+        
     else:
         print("Erreur lors de l'ajout de l'album")
 
@@ -139,15 +154,12 @@ def menu_statistiques(catalogue):
         print("Impossible de charger les données")
         return
 
-    print("\n STATISTIQUES ET RAPPORT ")
+    print("\n4-STATISTIQUES ET RAPPORT ")
 
-    print("\n a. TOP 5 ARTISTES")
-
-    print("\n b. MOYENNE STREAMS PAR GENRE")
-
-    print("\n c. ALBUMS PAR ANNEE")
-
-    print("\n d. EXPORT RAPPORT CSV")
+    print("a. TOP 5 ARTISTES")
+    print("b. MOYENNE STREAMS PAR GENRE")
+    print("c. ALBUMS PAR ANNEE")
+    print("d. EXPORT RAPPORT CSV")
 
     choix= input("Votre choix (a/b/c/d):").lower()
 
