@@ -1,5 +1,5 @@
 import label
-
+import analyse
 def menu_consulter(catalogue):
     """
     Affiche le menu de consultation du catalogue et gere les interactions utlisateur.
@@ -115,7 +115,43 @@ def menu_ajouter_album(catalogue):
     else:
         print("Erreur lors de l'ajout de l'album")
 
+ def menu_statistiques(catalogue):
+    """
+    Affiche les statistiques et génère un rapport complet du catalogue.
 
+    Cette fonction permet de consulter :
+    - Top 5 des artistes par nombre total de streams
+    - Moyenne des streams par genre musical
+    - Nombre d'albums par année
+    - Export d'un rapport global dans un fichier CSV
+
+    Args:
+        catalogue (list): Liste des artistes du catalogue.
+
+    Returns:
+        None
+    """
+
+    df = analyse.charger_et_aplatir("catalogue.json")
+
+    if df is None:
+        print("Impossible de charger les données")
+        return
+
+    print("\n STATISTIQUES ET RAPPORT ")
+
+    print("\n a. TOP 5 ARTISTES")
+    print(analyse.stats_par_artiste(df))
+
+    print("\n b. MOYENNE STREAMS PAR GENRE")
+    print(analyse.strams_genre(df))
+
+    print("\n c. ALBUMS PAR ANNEE")
+    print(analyse.albums_par_annee(df))
+
+    print("\n d. EXPORT RAPPORT CSV")
+    analyse.exporter_rapport(df)
+    print("Rapport généré avec succès")
 
     
 
@@ -143,6 +179,10 @@ def main():
             
         elif choix =="3":
             menu_ajouter_album(catalogue)
+            
+
+         elif choix =="4":
+            menu_statistiques(catalogue)
             
 
         elif choix =="5":
