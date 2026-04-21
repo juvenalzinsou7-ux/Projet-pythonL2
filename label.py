@@ -149,9 +149,11 @@ def ajouter_album(catalogue,id_artiste,album):
         print("Cet artiste n'existe pas chez nous merci")
         return  False
     
-    #s'assure que le titre n'est pas vide
+    # Validation ajoutée pour bloquer proprement les saisies incomplètes.
+    # Je la laisse explicite pour que tu repères facilement ma correction.
     if not album['titre'].strip():
         print("L'album doit avoir obligatoirement un titre")
+        return False
 
     #Réglage pour l'année
     try:
@@ -163,8 +165,13 @@ def ajouter_album(catalogue,id_artiste,album):
         print("Veuillez entrer une valeur correcte")
         return False
     
-    #Réglage pour les streams
-    stream=int(album['streams'])
+    # Même principe ici : on refuse les streams non numériques au lieu de faire planter l'appli.
+    try:
+        stream=int(album['streams'])
+    except ValueError:
+        print("Veuillez entrer une valeur correcte")
+        return False
+
     if stream<0:
         print("Les streams ne peuvent pas être négatif")
         return False

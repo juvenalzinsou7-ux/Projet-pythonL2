@@ -115,7 +115,8 @@ def menu_ajouter_album(catalogue):
     else:
         print("Erreur lors de l'ajout de l'album")
 
- def menu_statistiques(catalogue):
+
+def menu_statistiques(catalogue):
     """
     Affiche les statistiques et génère un rapport complet du catalogue.
 
@@ -141,17 +142,23 @@ def menu_ajouter_album(catalogue):
     print("\n STATISTIQUES ET RAPPORT ")
 
     print("\n a. TOP 5 ARTISTES")
-    print(analyse.stats_par_artiste(df))
 
     print("\n b. MOYENNE STREAMS PAR GENRE")
-    print(analyse.strams_genre(df))
 
     print("\n c. ALBUMS PAR ANNEE")
-    print(analyse.albums_par_annee(df))
 
     print("\n d. EXPORT RAPPORT CSV")
-    analyse.exporter_rapport(df)
-    print("Rapport généré avec succès")
+
+    choix= input("Votre choix (a/b/c/d):").lower()
+
+    if choix == 'a':
+        print(analyse.stats_par_artiste(df))
+    elif choix =='b':
+        print(analyse.strams_genre(df))
+    elif choix =='c':
+        print(analyse.albums_par_annee(df))
+    elif choix =='d':
+        analyse.exporter_rapport(df)
 
     
 
@@ -181,7 +188,7 @@ def main():
             menu_ajouter_album(catalogue)
             
 
-         elif choix =="4":
+        elif choix =="4":
             menu_statistiques(catalogue)
             
 
