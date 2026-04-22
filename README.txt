@@ -1,3 +1,17 @@
+LES MEMBRES DU GROUPE ET LEURS ROLES
+Nous avons choisi comme extension:HISTORIQUE:journaliser toutes les modifications dans 
+un fichier historique.log
+
+1-BELLO Moufeed-Deen:Réalisation des deux premieres fonctions dans analyse
+
+2-TOUDONOU Hans:Réalisation de label et historique qui concerne notre extension
+
+3-ADAM Samirath:Réalisation du main du 1 au 3
+
+4-ZINSOU Juvenal :Réalisation du main le 4 et 5
+
+5-EGUEH Onéida:Réalisation des deux dernieres fonctions dans analyse
+
 Application console Python pour gerer un catalogue d'artistes et d'albums, avec persistance en JSON et statistiques via `pandas`.
 
 ## Apercu
