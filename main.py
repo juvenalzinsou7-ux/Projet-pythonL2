@@ -150,10 +150,7 @@ def menu_statistiques(catalogue):
 
     df = analyse.charger_et_aplatir("catalogue.json")
 
-    if df is None:
-        print("Impossible de charger les données")
-        return
-
+   
     print("\n4-STATISTIQUES ET RAPPORT ")
 
     print("a. TOP 5 ARTISTES")
