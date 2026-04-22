@@ -149,9 +149,9 @@ def ajouter_album(catalogue,id_artiste,album):
         print("Cet artiste n'existe pas chez nous merci")
         return  False
     
-    #s'assure que le titre n'est pas vide
     if not album['titre'].strip():
         print("L'album doit avoir obligatoirement un titre")
+        return False
 
     #Réglage pour l'année
     try:
@@ -163,8 +163,13 @@ def ajouter_album(catalogue,id_artiste,album):
         print("Veuillez entrer une valeur correcte")
         return False
     
-    #Réglage pour les streams
-    stream=int(album['streams'])
+    
+    try:
+        stream=int(album['streams'])
+    except ValueError:
+        print("Veuillez entrer une valeur correcte")
+        return False
+
     if stream<0:
         print("Les streams ne peuvent pas être négatif")
         return False
