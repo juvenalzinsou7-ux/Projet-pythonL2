@@ -1,0 +1,35 @@
+﻿ TOP 5 ARTISTES PAR STREAMS 
+nom,streams
+Burna Boy,37600000
+Davido,33200000
+Aya Nakamura,33100000
+Fally Ipupa,16100000
+Dip Doundou Guiss,11300000
+
+MOYENNE DES STREAMS PAR GENRE
+genre,streams
+Afrobeat,9655556
+Afropop,5993333
+Coupé-Décalé,2800000
+Mandingue,2750000
+Hip-hop,2322500
+Mbalax,1226667
+Blues Mandingue,705000
+
+NOMBRE D'ALBUMS PAR ANNÉE 
+annee,nombre_albums
+2004,1
+2009,1
+2010,1
+2012,1
+2013,2
+2014,2
+2015,2
+2016,3
+2017,1
+2018,4
+2019,3
+2020,6
+2021,1
+2022,3
+2023,2
