@@ -1,6 +1,8 @@
 import label
 import analyse
 import historique
+import subprocess
+
 def menu_consulter(catalogue):
     """
     Affiche le menu de consultation du catalogue et gere les interactions utlisateur.
@@ -51,6 +53,8 @@ def menu_consulter(catalogue):
                 print(f"Titre: {album['titre']} | Streams: {album['streams']}")
         else:
             print("Artiste introuvable")
+    else:
+        print("Choix invalide")
 
 
 def menu_ajouter_artiste(catalogue):
@@ -168,6 +172,8 @@ def menu_statistiques(catalogue):
         print(analyse.albums_par_annee(df))
     elif choix =='d':
         analyse.exporter_rapport(df)
+    else:
+        print("Choix invalide")
 
     
 
@@ -176,6 +182,7 @@ def main():
     catalogue= label.charger_catalogue("catalogue.json")
 
     while True:
+        subprocess.run(['cmd', '/c', 'cls'])
         print("\nMENU PRINCIPAL")
         print("1.Consulter le catalogue")
         print("2.Ajouter un artiste")
@@ -206,6 +213,7 @@ def main():
             break
         else:
             print("Choix invalide. Veuillez réessayer.")
-
+        subprocess.run(['cmd', '/c', 'pause'])
 if __name__ == "__main__":
     main() 
+
