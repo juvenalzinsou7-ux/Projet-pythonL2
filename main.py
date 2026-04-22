@@ -2,6 +2,7 @@ import label
 import analyse
 import historique
 import subprocess
+
 def menu_consulter(catalogue):
     """
     Affiche le menu de consultation du catalogue et gere les interactions utlisateur.
@@ -54,6 +55,7 @@ def menu_consulter(catalogue):
             print("Artiste introuvable")
     else:
         print("Choix invalide")
+
 
 def menu_ajouter_artiste(catalogue):
     """
@@ -172,6 +174,7 @@ def menu_statistiques(catalogue):
         analyse.exporter_rapport(df)
     else:
         print("Choix invalide")
+
     
 
 
@@ -211,5 +214,8 @@ def main():
         else:
             print("Choix invalide. Veuillez réessayer.")
         subprocess.run(['cmd', '/c', 'pause'])
+if __name__ == "__main__":
+    main() 
+
 if __name__ == "__main__":
     main() 
